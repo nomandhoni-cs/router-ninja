@@ -1,23 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import { createContext, useState } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "./App.css";
+import About from "./Components/About/About";
+import Friendlist from "./Components/Friendlist/Friendlist";
+import Friends from "./Components/Friends/Friends";
+import Home from "./Components/Home/Home";
+import NotFound from "./Components/NotFound/NotFound";
+import SharedLayout from "./Components/SharedLayout/SharedLayout";
 
+export const FriendContext = createContext();
 function App() {
+  const [friendList, setFriendList] = useState([]);
+  const [friends, setFriends] = useState([]);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <FriendContext.Provider
+        value={[friendList,setFriendList]}
+      >
+        <BrowserRouter>
+          <Routes>
+            {/* Shared layout to make navigation visible in every page  */}
+            <Route path="/" element={<SharedLayout />}>
+              <Route index element={<Home />} />
+              <Route path="about" element={<About />} />
+              <Route path="friends" element={<Friends setFriends={setFriends} friends={friends}/>} />
+              <Route path="friendList" element={<Friendlist />} />
+              <Route path="*" element={<NotFound />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </FriendContext.Provider>
     </div>
   );
 }
