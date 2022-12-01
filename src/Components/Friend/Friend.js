@@ -4,7 +4,7 @@ const Friend = (props) => {
     const {friend} = props
     const {name, email} = friend;
     const friendContainerStyle = {
-        border: '1px solid purple',
+        border: '1px solid #0d6efd',
         borderRadius: '8px',
         margin: '10px',
         padding: '10px'

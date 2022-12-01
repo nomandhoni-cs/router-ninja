@@ -13,7 +13,7 @@ const Friendlist = () => {
   return <div className="friend-list-container">
     {
         friendList.map((friend) => <Friend key={friend.id} friend={friend}>
-            <Button className = 'btn-warning' onClick={() => handleRemoveFriend(friend.id)}>Remove Friend</Button>
+            <Button className = 'btn-primary' onClick={() => handleRemoveFriend(friend.id)}>Remove Friend</Button>
         </Friend>)
     }
   </div>;

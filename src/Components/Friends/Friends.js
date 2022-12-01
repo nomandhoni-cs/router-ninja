@@ -32,7 +32,7 @@ const Friends = ({ friends, setFriends }) => {
           handleAddFriend={handleAddFriend}
           friend={friend}
         >
-    <Button className = 'btn-warning' onClick={() => handleAddFriend(friend)}>Add Friend</Button>
+    <Button className = 'btn-primary' onClick={() => handleAddFriend(friend)}>Add Friend</Button>
         </Friend>
       ))}
     </>

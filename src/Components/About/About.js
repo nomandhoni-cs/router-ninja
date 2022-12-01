@@ -6,9 +6,9 @@ const About = () => {
   return (
     <>
       <h1>About</h1>
-      <Button className="btn-warning">
-        <Link to="/">Go Back</Link>
-      </Button>
+
+        <Link className="btn btn-primary" to="/">Go Back</Link>
+
     </>
   );
 };
