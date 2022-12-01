@@ -14,16 +14,14 @@ const Friends = ({ friends, setFriends }) => {
   //Add friend function
   const handleAddFriend = (friend) => {
     const isFriend = friendList.find((frd) => frd.id === friend.id);
-    if(isFriend)
-    {
-      alert('That person Already in your Friend list')
+    if (isFriend) {
+      alert("That person Already in your Friend list");
+    } else {
+      setFriendList([...friendList, friend]);
     }
-    else{
-    setFriendList([...friendList, friend])
-    }
-    console.log(friendList);
   };
-//   console.log(setFriendList);
+
+  //   console.log(setFriendList);
   return (
     <>
       {friends.map((friend) => (
@@ -32,7 +30,12 @@ const Friends = ({ friends, setFriends }) => {
           handleAddFriend={handleAddFriend}
           friend={friend}
         >
-    <Button className = 'btn-primary' onClick={() => handleAddFriend(friend)}>Add Friend</Button>
+          <Button
+            className="btn-primary"
+            onClick={() => handleAddFriend(friend)}
+          >
+            Add Friend
+          </Button>
         </Friend>
       ))}
     </>

@@ -7,6 +7,7 @@ import Friends from "./Components/Friends/Friends";
 import Home from "./Components/Home/Home";
 import NotFound from "./Components/NotFound/NotFound";
 import SharedLayout from "./Components/SharedLayout/SharedLayout";
+import SingleFriend from "./Components/SingleFriend/SingleFriend";
 
 export const FriendContext = createContext();
 function App() {
@@ -25,6 +26,7 @@ function App() {
               <Route path="about" element={<About />} />
               <Route path="friends" element={<Friends setFriends={setFriends} friends={friends}/>} />
               <Route path="friendList" element={<Friendlist />} />
+              <Route path="friends/:friendID" element={<SingleFriend />} />
               <Route path="*" element={<NotFound />} />
             </Route>
           </Routes>
