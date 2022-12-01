@@ -4,12 +4,16 @@ import Friend from "../Friend/Friend";
 import { Button } from 'react-bootstrap';
 
 const Friendlist = () => {
-  const [friendList] = useContext(FriendContext);
+  const [friendList, setFriendList] = useContext(FriendContext);
+  const handleRemoveFriend = (id) => {
+    const newFriendList = friendList.filter((frd) => frd.id !== id);
+    setFriendList(newFriendList)
+  }
   console.log(friendList);
   return <div className="friend-list-container">
     {
         friendList.map((friend) => <Friend key={friend.id} friend={friend}>
-            <Button className = 'btn-warning'>Remove Friend</Button>
+            <Button className = 'btn-warning' onClick={() => handleRemoveFriend(friend.id)}>Remove Friend</Button>
         </Friend>)
     }
   </div>;

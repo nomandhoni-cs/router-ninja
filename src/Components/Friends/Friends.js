@@ -13,8 +13,14 @@ const Friends = ({ friends, setFriends }) => {
 
   //Add friend function
   const handleAddFriend = (friend) => {
-    // console.log("Added", friend);
+    const isFriend = friendList.find((frd) => frd.id === friend.id);
+    if(isFriend)
+    {
+      alert('That person Already in your Friend list')
+    }
+    else{
     setFriendList([...friendList, friend])
+    }
     console.log(friendList);
   };
 //   console.log(setFriendList);
